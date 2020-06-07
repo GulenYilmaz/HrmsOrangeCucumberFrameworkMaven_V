@@ -2,7 +2,7 @@ package com.hrms.steps;
 
 import com.hrms.utils.CommonMethods;
 
-import io.cucumber.core.gherkin.Scenario;
+import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
