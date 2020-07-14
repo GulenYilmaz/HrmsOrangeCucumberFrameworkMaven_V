@@ -1,4 +1,4 @@
-package com.hrms.practice_SQL;
+package com.hrms.practice__SQL__withSelenium;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +28,8 @@ public class MetaData {
 	// @Test
 	public void dbMetadata() throws SQLException {
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+		
+		// we can get all informations about this connection
 		DatabaseMetaData dbMetaData = conn.getMetaData();
 		String driverName = dbMetaData.getDriverName();
 		String dbVersion = dbMetaData.getDatabaseProductVersion();
@@ -38,16 +40,24 @@ public class MetaData {
 	// query - display all the info about employee whose emp_number is 14688
 	@Test
 	public void rsMetadata() throws SQLException {
+		
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 		Statement st = conn.createStatement();
+		
 		ResultSet rs = st.executeQuery("select * from hs_hr_employees where emp_number = 14688");
 		ResultSetMetaData rsMetadata =  rs.getMetaData();
+		
+		//how many columns we have
 		int colNumbers = rsMetadata.getColumnCount();
 		System.out.println(colNumbers);
+		
+		//first columns name
 		String colName1 = rsMetadata.getColumnName(1);
 		System.out.println(colName1);
 		
-		for(int i = 1; i <= colNumbers; i++) {
+		
+		// we can retrive all columns name using regular for loop
+		for(int i = 1; i <= colNumbers; i++) {// i<= colums number 
 			String colNames = rsMetadata.getColumnName(i);
 			System.out.println(colNames);
 		}

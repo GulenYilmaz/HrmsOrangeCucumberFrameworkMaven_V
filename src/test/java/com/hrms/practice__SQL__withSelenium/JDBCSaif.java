@@ -1,4 +1,4 @@
-package com.hrms.practice_SQL;
+package com.hrms.practice__SQL__withSelenium;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

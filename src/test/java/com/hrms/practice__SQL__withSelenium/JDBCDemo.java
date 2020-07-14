@@ -1,4 +1,4 @@
-package com.hrms.practice_SQL;
+package com.hrms.practice__SQL__withSelenium;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,14 +28,23 @@ public class JDBCDemo {
 	public void abc() throws SQLException {
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 		System.out.println("DB connection is successful");
+		
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery("select * from hs_hr_employees");
+		
+		//first row
 		rs.next();
 		String firstname = rs.getString("emp_firstname");
 		System.out.println(firstname);
+		
+		
+		//second row
 		rs.next();
 		String firstname2 = rs.getObject("emp_firstname").toString();
 		System.out.println(firstname2);
+		
+		
+		// all data from one column
 		String allData;
 		while(rs.next()) {
 			allData = rs.getObject("Emp_firstname").toString();
